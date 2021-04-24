@@ -81,7 +81,39 @@ Pizza.prototype.GetToppingscost()= function(){
     }
 }
 Pizza.prototype.GetSizecost()= function (){
-    
+    if (type=="Cheese"){
+        if(size=="Small"){
+            return 500
+        }
+        if(size=="Medium"){
+            return 750
+        }
+        if(size=="Large"){
+            return 970
+        }
+    }
+    if (type=="Pepperoni"){
+        if(size=="Small"){
+            return 550
+        }
+        if(size=="Medium"){
+            return 800
+        }
+        if(size=="Large"){
+            return 1000
+        }
+    }
+    if (type=="Veggie"){
+        if(size=="Small"){
+            return 600
+        }
+        if(size=="Medium"){
+            return 850
+        }
+        if(size=="Large"){
+            return 1050
+        }
+    }
 }
 
 $(Document).ready(function (){
