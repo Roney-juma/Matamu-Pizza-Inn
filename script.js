@@ -166,6 +166,7 @@ $(document).ready(function () {
             $("#form-title").empty();
             $("#form-title").append("Add Another Order");
         }
+
         $("#total-amount").fadeIn();
         $("#checkout").fadeIn();
         $("#orders-div").fadeIn();
@@ -173,11 +174,12 @@ $(document).ready(function () {
         $("#total-amount").append(totalCost);
         $(".total-amount").show();
     });
+
     $("#checkout").click(function () {
         $(".checkout-options").show();
     });
-    $("#checkout-form").submit(function (e) {
-        e.preventDefault();
+    $("#checkout-form").submit(function (event) {
+        event.preventDefault();
         var name = $("#name").val();
         var deliveryOption = $("#delivery-option").val();
         customerName = name;
@@ -206,7 +208,7 @@ $(document).ready(function () {
         console.log(estate);
         console.log(houseNumber);
         $(".location").hide();
-        alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 30 minutes time.Thanks for doing business with us.");
+        alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 20 minutes time.We appriciate your c0-operation.");
     });
 
     $('#submission').submit(function (event) {
