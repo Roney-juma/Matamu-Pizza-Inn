@@ -13,105 +13,101 @@ $(document).ready(function () {
     }
 
     Pizza.prototype.GetCrustcost= function(){
-        if (type=="Cheese"){
-            if(crust=="Crispy"){
+        if (this.type=="Cheese"){
+            if(this.crust=="Crispy"){
                 return 100
             }
-            else if(crust=="Stuffed"){
+            else if(this.crust=="Stuffed"){
                 return 150;
             }else
                 return 180;
         }
-        else if (type=="Pepperoni"){
-            if(crust=="crispy"){
+        else if (this.type=="Pepperoni"){
+            if(this.crust=="crispy"){
                 return 120
             }
-            else if(crust=="stuffed"){
+            else if(this.crust=="stuffed"){
                 return 170
             }
             else
                 return 200
         }
         else(this.type=="Veggie")
-            if(crust=="Crispy"){
+            if(this.crust=="Crispy"){
                 return 150
             }
-            else if(crust=="Stuffed"){
+            else if(this.crust=="Stuffed"){
                 return 180
             }
             else
                 return 200
     }
     Pizza.prototype.GetToppingscost= function(){
-        if (type=="Cheese"){
-            if(topping=="Mushroom"){
+        if (this.type=="Cheese"){
+            if(this.topping=="Mushroom"){
                 return 30
             }
-            if(topping=="Brocoli"){
+            else if(this.topping=="Brocoli"){
                 return 50
             }
-            if(topping=="Pancetta"){
+            else
                 return 70
-            }
         }
-        if (type=="Pepperoni"){
-            if(topping=="Mushroom"){
+        else if (this.type=="Pepperoni"){
+            if(this.topping=="Mushroom"){
                 return 40
             }
-            if(topping=="Brocoli"){
+            else if(this.topping=="Brocoli"){
                 return 60
             }
-            if(topping=="Pancetta"){
+            else
                 return 80
-            }
+            
         }
-        if (type=="Veggie"){
-            if(topping=="Mushroom"){
+        else
+            if(this.topping=="Mushroom"){
                 return 60
             }
-            if(topping=="Brocoli"){
+            else if(this.topping=="Brocoli"){
                 return 80
             }
-            if(topping=="Pancetta"){
+            else
                 return 100
-            }
-        }
+            
+        
     }
 
     Pizza.prototype.GetSizecost= function (){
-        if (type=="Cheese"){
-            if(size=="Small"){
+        if (this.type=="Cheese"){
+            if(this.size=="Small"){
                 return 500
             }
-            if(size=="Medium"){
+            else if(this.size=="Medium"){
                 return 750
             }
-            if(size=="Large"){
+            else
                 return 970
-            }
+            
         }
-        else if (type=="Pepperoni"){
-            if(size=="Small"){
+        else if (this.type=="Pepperoni"){
+            if(this.size=="Small"){
                 return 550
             }
-            if(size=="Medium"){
+            else if(this.size=="Medium"){
                 return 800
             }
-            if(size=="Large"){
+            else
                 return 1000
-            }
         }
-        else if (type=="Veggie"){
+        else
             if(size=="Small"){
                 return 600
             }
-            if(size=="Medium"){
+            else if(size=="Medium"){
                 return 850
             }
-            if(size=="Large"){
+            else
                 return 1050
-            }
-        }
     }
 
     //User Interface logic
