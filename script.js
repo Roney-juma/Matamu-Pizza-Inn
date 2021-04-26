@@ -9,20 +9,18 @@ $(document).ready(function () {
     }
 
     Pizza.prototype.GetTotalcost= function(){
-        return this.GetToppingscost + this.GetSizecost + this.GetCrustcost
+        return this.GetToppingscost() + this.GetSizecost() + this.GetCrustcost()
     }
 
     Pizza.prototype.GetCrustcost= function(){
         if (type=="Cheese"){
-            if(crust==crispy){
+            if(crust=="Crispy"){
                 return 100
             }
-            else if(crust=="stuffed"){
-                return 150
-            }
-            else if(crust=="Flatbread"){
-                return 180
-            }
+            else if(crust=="Stuffed"){
+                return 150;
+            }else
+                return 180;
         }
         else if (type=="Pepperoni"){
             if(crust=="crispy"){
@@ -35,7 +33,7 @@ $(document).ready(function () {
                 return 200
             }
         }
-        else if (type=="Veggie"){
+        else if(type=="Veggie"){
             if(crust=="Crispy"){
                 return 150
             }
