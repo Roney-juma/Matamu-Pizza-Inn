@@ -1,4 +1,6 @@
 //Business logic
+
+$(document).ready(function () {
     function Pizza(type,toppings,crust,size){
         this.type=type
         this.toppings=toppings
@@ -6,7 +8,7 @@
         this.size=size
     }
 
-    Pizza.prototype.Gettotalcost= function(){
+    Pizza.prototype.GetTotalcost= function(){
         return this.GetToppingscost + this.GetSizecost + this.GetCrustcost
     }
 
@@ -15,32 +17,32 @@
             if(crust==crispy){
                 return 100
             }
-            if(crust=="stuffed"){
+            else if(crust=="stuffed"){
                 return 150
             }
-            if(crust=="Flatbread"){
+            else if(crust=="Flatbread"){
                 return 180
             }
         }
-        if (type=="Pepperoni"){
+        else if (type=="Pepperoni"){
             if(crust=="crispy"){
                 return 120
             }
-            if(crust=="stuffed"){
+            else if(crust=="stuffed"){
                 return 170
             }
-            if(crust=="Flatbread"){
+            else if(crust=="Flatbread"){
                 return 200
             }
         }
-        if (type=="Veggie"){
+        else if (type=="Veggie"){
             if(crust=="Crispy"){
                 return 150
             }
-            if(crust=="Stuffed"){
+            else if(crust=="Stuffed"){
                 return 180
             }
-            if(crust=="Flatbread"){
+            else if(crust=="Flatbread"){
                 return 200
             }
         }
@@ -119,44 +121,14 @@
 
     //User Interface logic
 
-    $(document).ready(function (){
-        $(".pic1").click(function(){
-            $(".pic1").hide(100)
-            $(".p1").show(100)
-        });
-        $(".p1").click(function(){
-            $(".p1").hide(100)
-            $(".pic1").show(100)
-        });
-        
-        $(".pic2").click(function(){
-            $(".pic2").hide(100)
-            $(".p2").show(100)
-        });
-        $(".p2").click(function(){
-            $(".p2").hide(100)
-            $(".pic2").show(100)
-        });
-        
-    
-        $(".pic3").click(function(){
-            $(".pic3").hide(100)
-            $(".p3").show(100)
-        });
-        $(".p3").click(function(){
-            $(".p3").hide(100)
-            $(".pic3").show(100)
-        });
-    })
-
     var customerName = "";
     var totalCost = 0;
     var pizzasOrdered = [];
     var estate = "";
     var houseNumber = "";
 
-    $("#pizza-form").submit(function (e) {
-        e.preventDefault();
+    $("#pizza-form").submit(function (event) {
+        event.preventDefault();
         var typeSelected = $("#type").val();
         var sizeSelected = $("#size").val();
         var toppingSelected = $("#topping").val();
@@ -174,7 +146,7 @@
         $("#crust").val("");
         totalCost = 0;
         for (let i = 0; i < pizzasOrdered.length; i++) {
-            totalCost += pizzasOrdered[i].getPizzaPrice();
+            totalCost += pizzasOrdered[i].GetTotalcost();
         }
         $("#order-summary").append(
             "<tr>" +
@@ -183,20 +155,20 @@
             " (" +
             newPizza.size +
             ") - " +
-            newPizza.getTypePrice() +
+            newPizza.GetSizecost() +
             "</th>" +
             "<td>" +
             newPizza.topping +
             " - " +
-            newPizza.getToppingPrice() +
+            newPizza.GetToppingscost() +
             "</td>" +
             "<td>" +
             newPizza.crust +
             " - " +
-            newPizza.getCrustPrice() +
+            newPizza.GetCrustcost() +
             "</td>" +
             "<td>" +
-            newPizza.getPizzaPrice() +
+            newPizza.GetTotalcost() +
             "</td>" +
             "</tr>"
         );
@@ -246,7 +218,7 @@
         $(".location").hide();
         alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 30 minutes time.Thanks for doing business with us.");
     });
-$(document).ready(function () {
+
     $('#submission').submit(function (event) {
         var display1 = $('input#first').val();
         var display2 = $('input#mail').val();
