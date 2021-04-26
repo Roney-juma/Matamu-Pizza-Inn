@@ -208,7 +208,7 @@ $(document).ready(function () {
         console.log(estate);
         console.log(houseNumber);
         $(".location").hide();
-        alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 20 minutes time.We appriciate your c0-operation.");
+        alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 20 minutes time.We appriciate your coperation.");
     });
 
     $('#submission').submit(function (event) {
