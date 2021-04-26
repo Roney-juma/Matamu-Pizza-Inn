@@ -3,7 +3,7 @@
 $(document).ready(function () {
     function Pizza(type,toppings,crust,size){
         this.type=type
-        this.toppings=toppings
+        this.topping=topping
         this.crust=crust
         this.size=size
     }
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 return 1000
             }
         }
-        if (type=="Veggie"){
+        else if (type=="Veggie"){
             if(size=="Small"){
                 return 600
             }
@@ -125,7 +125,6 @@ $(document).ready(function () {
     var totalCost = 0;
     var pizzasOrdered = [];
     var estate = "";
-    var houseNumber = "";
 
     $("#pizza-form").submit(function (event) {
         event.preventDefault();
