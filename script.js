@@ -80,6 +80,7 @@
             }
         }
     }
+
     Pizza.prototype.GetSizecost= function (){
         if (type=="Cheese"){
             if(size=="Small"){
@@ -92,7 +93,7 @@
                 return 970
             }
         }
-        if (type=="Pepperoni"){
+        else if (type=="Pepperoni"){
             if(size=="Small"){
                 return 550
             }
@@ -148,3 +149,112 @@
         });
     })
 
+    var customerName = "";
+    var totalCost = 0;
+    var pizzasOrdered = [];
+    var estate = "";
+    var houseNumber = "";
+
+    $("#pizza-form").submit(function (e) {
+        e.preventDefault();
+        var typeSelected = $("#type").val();
+        var sizeSelected = $("#size").val();
+        var toppingSelected = $("#topping").val();
+        var crustSelected = $("#crust").val();
+        var newPizza = new Pizza(
+            typeSelected,
+            sizeSelected,
+            toppingSelected,
+            crustSelected
+        );
+        pizzasOrdered.push(newPizza);
+        $("#type").val("");
+        $("#size").val("");
+        $("#topping").val("");
+        $("#crust").val("");
+        totalCost = 0;
+        for (let i = 0; i < pizzasOrdered.length; i++) {
+            totalCost += pizzasOrdered[i].getPizzaPrice();
+        }
+        $("#order-summary").append(
+            "<tr>" +
+            '<th scope="row">' +
+            newPizza.type +
+            " (" +
+            newPizza.size +
+            ") - " +
+            newPizza.getTypePrice() +
+            "</th>" +
+            "<td>" +
+            newPizza.topping +
+            " - " +
+            newPizza.getToppingPrice() +
+            "</td>" +
+            "<td>" +
+            newPizza.crust +
+            " - " +
+            newPizza.getCrustPrice() +
+            "</td>" +
+            "<td>" +
+            newPizza.getPizzaPrice() +
+            "</td>" +
+            "</tr>"
+        );
+        if (pizzasOrdered.length > 0) {
+            $("#form-title").empty();
+            $("#form-title").append("Add Another Order");
+        }
+        $("#total-amount").fadeIn();
+        $("#checkout").fadeIn();
+        $("#orders-div").fadeIn();
+        $("#total-amount").empty();
+        $("#total-amount").append(totalCost);
+        $(".total-amount").show();
+    });
+    $("#checkout").click(function () {
+        $(".checkout-options").show();
+    });
+    $("#checkout-form").submit(function (e) {
+        e.preventDefault();
+        var name = $("#name").val();
+        var deliveryOption = $("#delivery-option").val();
+        customerName = name;
+        console.log(name);
+        console.log(deliveryOption);
+        $("#name").val("");
+        $("#delivery-option").val("");
+        $(".checkout-options").hide();
+        if (deliveryOption === "deliver") {
+            $(".location").show();
+            $(".delivery-cost").show();
+            $("#delivery-amount").append(200);
+            totalCost += 200;
+            $("#total-amount").empty();
+            $("#total-amount").append(totalCost);
+        } else {
+            alert(customerName + ": Your total bill is Ksh. " + totalCost + ". Your order will be ready for collection in the next 15 minutes.");
+        }
+    });
+    $("#location-form").submit(function (e) {
+        e.preventDefault();
+        var estateEntered = $("#estate").val();
+        var houseNumberEntered = $("#house-number").val();
+        estate = estateEntered;
+        houseNumber = houseNumberEntered;
+        console.log(estate);
+        console.log(houseNumber);
+        $(".location").hide();
+        alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 30 minutes time.Thanks for doing business with us.");
+    });
+$(document).ready(function () {
+    $('#submission').submit(function (event) {
+        var display1 = $('input#first').val();
+        var display2 = $('input#mail').val();
+        if (display1 && display2 != '') {
+            alert('Thank you ' + display1 + ' your subscription is well received');
+        } else {
+            alert('Invalid input');
+        }
+        event.preventDefault();
+    })
+});
