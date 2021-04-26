@@ -29,21 +29,18 @@ $(document).ready(function () {
             else if(crust=="stuffed"){
                 return 170
             }
-            else if(crust=="Flatbread"){
+            else
                 return 200
-            }
         }
-        else if(type=="Veggie"){
+        else(this.type=="Veggie")
             if(crust=="Crispy"){
                 return 150
             }
             else if(crust=="Stuffed"){
                 return 180
             }
-            else if(crust=="Flatbread"){
+            else
                 return 200
-            }
-        }
     }
     Pizza.prototype.GetToppingscost= function(){
         if (type=="Cheese"){
