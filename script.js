@@ -210,15 +210,5 @@ $(document).ready(function () {
         $(".location").hide();
         alert(customerName + ": Your total bill is   Ksh. " + totalCost + ". Your order will be delivered to " + estate + " Estate, House Number   " + houseNumber + " in 20 minutes time.We appriciate your coperation.");
     });
-
-    $('#submission').submit(function (event) {
-        var display1 = $('input#first').val();
-        var display2 = $('input#mail').val();
-        if (display1 && display2 != '') {
-            alert('Thank you ' + display1 + ' your subscription is well received');
-        } else {
-            alert('Invalid input');
-        }
-        event.preventDefault();
-    })
+    
 });
