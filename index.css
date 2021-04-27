@@ -26,18 +26,18 @@ p{
     
 }
 .content{
-    max-width: 900px;
+    width: 10000px;
     text-align: center;
     /* justify-content: center; */
     align-items: center;
-    /* margin-left: 600px;  */
+    margin-right: 600px;
 }
 .content h2{
     font-size: 5em;
     color: #fff;
 }
 .content p{
-    font-size: 1em;
+    font-size: 1.5em;
     color: #fff;
 }
 body{
