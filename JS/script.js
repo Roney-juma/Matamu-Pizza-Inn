@@ -1,7 +1,7 @@
 //Business logic
 
 $(document).ready(function () {
-    function Pizza(type,toppings,crust,size){
+    function Pizza(type,topping,crust,size){
         this.type=type
         this.topping=topping
         this.crust=crust
@@ -143,12 +143,12 @@ $(document).ready(function () {
             '<th scope="row">' +
             newPizza.type +
             " (" +
-            newPizza.size +
+            newPizza.topping +
             ") - " +
             newPizza.GetSizecost() +
             "</th>" +
             "<td>" +
-            newPizza.topping +
+            newPizza.size +
             " - " +
             newPizza.GetToppingscost() +
             "</td>" +
@@ -199,8 +199,8 @@ $(document).ready(function () {
             alert(customerName + ": Your total bill is Ksh. " + totalCost + ". Your order will be ready for collection in the next 15 minutes.");
         }
     });
-    $("#location-form").submit(function (e) {
-        e.preventDefault();
+    $("#location-form").submit(function (event) {
+        event.preventDefault();
         var estateEntered = $("#estate").val();
         var houseNumberEntered = $("#house-number").val();
         estate = estateEntered;
